@@ -1,0 +1,832 @@
+1.  #include <stdio.h>
+
+int main(void) {
+  int dia;
+do{
+  printf("Digite um número de 1 a 7, e 0 para encerrar o programa: ");
+  scanf("%d", &dia);
+
+  switch(dia) {
+    case 1:
+    printf("Domingo\n");
+    break;
+
+    case 2:
+    printf("Segunda feira\n");
+    break;
+
+    case 3:
+    printf("Terça feira\n");
+    break;
+
+    case 4:
+    printf("Quarta feira\n");
+
+    case 5:
+    printf("Quinta feira\n");
+    break;
+
+    case 6:
+    printf("Sexta feira\n");
+    break;
+
+    case 7:
+    printf("Sábado\n");
+    break;
+
+    case 0:
+
+    printf("Fim do programa\n");
+    break;
+
+    default:
+    printf("O número digitado não é válido, pois não equivale a nenhum dia\n");
+
+    
+  }
+} while (dia != 0);
+  return 0;
+}
+
+
+
+2.  #include <stdio.h>
+
+int main() {
+int dia;
+
+while (1) {
+printf("Digite um número de 1 a 7 e 0 para encerrar o programa: ");
+scanf("%d", &dia);
+
+if (dia == 0) {
+printf("Programa encerrado.\n");
+break;
+} else if (dia >= 1 && dia <= 7) {
+switch (dia) {
+case 1:
+printf("Domingo\n");
+break;
+case 2:
+printf("Segunda-feira\n");
+break;
+case 3:
+printf("Terça-feira\n");
+break;
+case 4:
+printf("Quarta-feira\n");
+break;
+case 5:
+printf("Quinta-feira\n");
+break;
+case 6:
+printf("Sexta-feira\n");
+break;
+case 7:
+printf("Sábado\n");
+break;
+}
+} else {
+printf("O número digitado não é válido, pois não equivale a nenhum dia\n");
+}
+}
+
+return 0;
+}
+
+
+
+3.  #include <stdio.h>
+
+int main() {
+  int numero, fatorial = 1;
+
+  printf("escreva algum número inteiro positivo: ");
+  scanf("%d",&numero);
+
+  if(numero < 0) {
+    printf("o número tem que ser positivo.\n");
+  } else{
+    for(int i = 1; i<= numero; i++) {
+      fatorial *= i;
+    }
+    printf("o fatorial de %d é: %d\n", numero, fatorial);
+  }
+  return 0;
+}
+
+
+
+4.  #include <stdio.h>
+
+int main() {
+ int alturajose = 150;
+ int crescimentojose = 2;
+
+ int alturapedro = 110;
+ int crescimentopedro = 3;
+
+ int anos = 0;
+
+ while(alturapedro <= alturajose) {
+   alturajose += crescimentojose;
+   alturapedro += crescimentopedro;
+   anos++;
+ }  
+  printf("pedro será maior que josé em %d anos.\n",anos);
+  
+  return 0;
+}
+
+
+
+
+5.   #include <stdio.h>
+
+int main() {
+  int n , maior, menor;
+  printf(" escreva um valor ou coloque 0 para encerrar o programa: ");
+  scanf("%d", &n);
+
+  if (n == 0){
+    printf("nenhum valor foi inserido.\n");
+}
+  maior = menor = n;
+  while (n !=0){
+    if(n > maior) {
+      maior = n;
+    } else if (n < menor){
+      menor = n;
+    }
+    printf("coloque outro valor ou digite 0 para encerrar o programa: ");
+    scanf("%d", &n);
+  }
+  printf("o maior valor inserido foi: %d.\n", maior);
+  printf("o menor valor inserido foi: %d.\n",menor);
+
+  return 0;
+}
+
+
+6.  #include <stdio.h>
+
+int main() {
+    int voto;
+    int votos_paulo = 0;
+    int votos_renata = 0;
+    int votos_branco = 0;
+    int votos_nulos = 0;
+    int total_votos = 0;
+
+    printf("Eleição para Presidente\n");
+    printf("Candidatos: 5 - Paulo, 7 - Renata\n");
+    printf("Para votar, digite o número do candidato (0 para voto em branco).\n");
+    printf("Para encerrar a votação, digite um número negativo.\n");
+
+    while (1) {
+        printf("Digite seu voto: ");
+        scanf("%d", &voto);
+
+        if (voto < 0) {
+            break; // Encerra a votação se o número for negativo
+        }
+
+        total_votos++;
+
+        switch (voto) {
+            case 0:
+                votos_branco++;
+                break;
+            case 5:
+                votos_paulo++;
+                break;
+            case 7:
+                votos_renata++;
+                break;
+            default:
+                votos_nulos++;
+                break;
+        }
+
+        printf("Voto registrado. Deseja votar novamente? (S/N): ");
+        char continuar;
+        scanf(" %c", &continuar);
+        if (continuar == 'N' || continuar == 'n') {
+            break; // Encerra a votação se o eleitor não deseja continuar
+        }
+    }
+
+    // Calcula as porcentagens de votação
+    float percentual_paulo = (float)votos_paulo / total_votos * 100;
+    float percentual_renata = (float)votos_renata / total_votos * 100;
+    float percentual_branco = (float)votos_branco / total_votos * 100;
+    float percentual_nulos = (float)votos_nulos / total_votos * 100;
+
+    printf("\nResultado da Eleição:\n");
+    printf("Total de votos: %d\n", total_votos);
+    printf("Votos para Paulo (Candidato 5): %d (%.2f%%)\n", votos_paulo, percentual_paulo);
+    printf("Votos para Renata (Candidato 7): %d (%.2f%%)\n", votos_renata, percentual_renata);
+    printf("Votos em branco: %d (%.2f%%)\n", votos_branco, percentual_branco);
+    printf("Votos nulos: %d (%.2f%%)\n", votos_nulos, percentual_nulos);
+
+    // Determina o candidato eleito
+    if (votos_paulo > votos_renata) {
+        printf("Paulo foi eleito Presidente!\n");
+    } else if (votos_renata > votos_paulo) {
+        printf("Renata foi eleita Presidente!\n");
+    } else {
+        printf("A eleição terminou em empate.\n");
+    }
+
+    return 0;
+}
+
+
+7.  #include <stdio.h>
+
+int main() {
+    double v1, v2;
+    double resultado;
+
+    printf("primeiro valor: ");
+    scanf("%lf", &v1);
+
+    do {
+        printf("segundo valor (não pode ser zero): ");
+        scanf("%lf", &v2);
+
+        if (v2 == 0) {
+            printf("O segundo valor não pode ser zero. Tente novamente.\n");
+        }
+    } while (v2 == 0);
+
+    resultado = v1 / v2;
+
+    printf("Resultado da divisão: %.2lf\n", resultado);
+
+    return 0;
+}
+
+
+8.  #include <stdio.h>
+
+int main() {
+    double valormercadoria;
+    double entrada, p1, p2;
+
+    printf("valor da mercadoria: R$ ");
+    scanf("%lf", &valormercadoria);
+
+    // calcula o valor da entrada
+    entrada = valormercadoria / 3.0; // divide o valor da mercadoria em 3 partes iguais
+
+    // as duas prestações devem ser iguais e inteiras
+    p1 = p2 = (int)(entrada + 0.5); // add 0.5 p/ arredondar corretamente
+
+    printf("valor entrada: R$ %.2lf\n", entrada);
+    printf("Valor 1* prestacao: R$ %.2lf\n", p1);
+    printf("Valor 2* prestacao: R$ %.2lf\n", p2);
+
+    return 0;
+}
+
+
+9.  #include <stdio.h>
+
+int main() {
+    int t1 = 0, t2 = 1, proxtermo;
+
+    printf("assim fica a sequência de fibonacci até o 20* termo:\n");
+
+    for (int i = 0; i < 20; i++) {
+        if (i <= 1) {
+            proxtermo = i;
+        } else {
+            proxtermo = t1 + t2;
+            t1 = t2;
+            t2 = proxtermo;
+        }
+
+        printf("%d ", proxtermo);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+
+10.  #include <stdio.h>
+
+int main() {
+    printf("quadrados dos múltiplos de 4 de 15 a 90:\n");
+
+    for (int i = 16; i <= 90; i += 4) {
+        int quadrado = i * i;
+        printf("%d^2 = %d\n", i, quadrado);
+    }
+
+    return 0;
+}
+
+
+11.  #include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("limite inferior (a): ");
+    scanf("%d", &a);
+    printf("limite superior (b): ");
+    scanf("%d", &b);
+
+    if (a <= b) {
+        printf("quadrados dos múltiplos de 4 de %d a %d:\n", a, b);
+        for (int i = (a % 4 == 0) ? a : a + (4 - (a % 4)); i <= b; i += 4) {
+            int quadrado = i * i;
+            printf("%d^2 = %d\n", i, quadrado);
+        }
+    } else {
+        printf("quadrados dos múltiplos de 4 de %d a %d:\n", b, a);
+        for (int i = (b % 4 == 0) ? b : b + (4 - (b % 4)); i <= a; i += 4) {
+            int quadrado = i * i;
+            printf("%d^2 = %d\n", i, quadrado);
+        }
+    }
+
+    return 0;
+}
+
+
+12.  #include <stdio.h>
+
+int main() {
+    int num;
+
+    printf("número inteiro para a tabuada: ");
+    scanf("%d", &num);
+
+    printf("aqui está os resultados da tabuada %d:\n", num);
+
+    for (int i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", num, i, num * i);
+    }
+
+    return 0;
+}
+
+
+13.  #include <stdio.h>
+
+int main() {
+    int a, b;
+    int soma = 0;
+
+    printf("A: ");
+    scanf("%d", &a);
+    printf("B: ");
+    scanf("%d", &b);
+
+    if (a <= b) {
+        for (int i = a; i <= b; i++) {
+            if (i % 2 == 0) {
+                soma += i; // add núm pares à soma
+            }
+        }
+    } else {
+        for (int i = b; i <= a; i++) {
+            if (i % 2 == 0) {
+                soma += i; // add núm pares à soma
+            }
+        }
+    }
+
+    printf(" soma dos números pares no limite estabelecido [%d, %d] é: %d\n", a, b, soma);
+
+    return 0;
+}
+
+
+14.  #include <stdio.h>
+
+int main() {
+    int a, b;
+    int quantidade = 0;
+
+    printf("A: ");
+    scanf("%d", &a);
+    printf("B: ");
+    scanf("%d", &b);
+
+    if (a <= b) {
+        for (int i = a; i <= b; i++) {
+            if (i % 3 == 0) {
+                quantidade++; // add a quantidade de números divisíveis por 3
+            }
+        }
+    } else {
+        for (int i = b; i <= a; i++) {
+            if (i % 3 == 0) {
+                quantidade++; // add a quantidade de números divisíveis por 3
+            }
+        }
+    }
+
+    printf("os números divisìveis por 3 no limite estabelecido [%d, %d] são: %d\n", a, b, quantidade);
+
+    return 0;
+}
+
+
+15.  #include <stdio.h>
+
+int main() {
+    int base = 3;
+    int expoente;
+    int resultado = 1;
+
+    printf("3 elevado a expoentes de 0 a 7:\n");
+
+    for (expoente = 0; expoente <= 7; expoente++) {
+        printf("%d^%d = %d\n", base, expoente, resultado);
+        resultado *= base; // calculo da próxima potência
+    }
+
+    return 0;
+}
+
+
+16.  #include <stdio.h>
+
+int main() {
+    int somadosdivisiveis3 = 0;
+    int somadosdivisiveis5 = 0;
+
+    for (int i = 0; i <= 200; i++) {
+        if (i >= 0 && i <= 100) {
+            if (i % 3 == 0) {
+                somadosdivisiveis3 += i;
+            }
+        } else {
+            if (i % 5 == 0) {
+                somadosdivisiveis5 += i;
+            }
+        }
+    }
+
+    printf("a soma dos números divisíveis por 3 em [0, 100]: %d\n", somadosdivisiveis3);
+    printf("a soma dos números divisíveis por 5 em (100, 200]: %d\n", somadosdivisiveis5);
+
+    return 0;
+}
+
+
+17.  #include <stdio.h>
+
+int main() {
+    int celsius;
+    double fahrenheit;
+
+    printf("celsius p/ fahrenheit:\n");
+    printf("celsius\t\tfahrenheit\n");
+
+    for (celsius = 10; celsius <= 100; celsius += 10) {
+        fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+        printf("%d\t\t%.2lf\n", celsius, fahrenheit);
+    }
+
+    return 0;
+}
+
+
+18.   #include <stdio.h>
+#include <math.h>
+
+int main() {
+    long long totalgraos = 0;
+    long long grãosquadro = 1;
+
+    printf("número do quadro\tgrãos em quadro\tnúmero total de grãos\n");
+
+    for (int quadro = 1; quadro <= 64; quadro++) {
+        totalgraos += grãosquadro;
+        printf("%d\t%lld\t\t%lld\n", quadro, grãosquadro, totalgraos);
+        grãosquadro *= 2;
+    }
+
+    printf("o tabuleiro possui essa quantidade de grãos: %lld\n", totalgraos);
+
+    return 0;
+}
+
+
+math.h :
+
+ sin(x): Seno de um ângulo em radianos.
+cos(x): Cosseno de um ângulo em radianos.
+tan(x): Tangente de um ângulo em radianos.
+Funções exponenciais e logarítmicas:
+
+exp(x): Exponencial de x (e^x).
+log(x): Logaritmo natural de x (ln(x)).
+log10(x): Logaritmo de base 10 de x (log10(x)).
+pow(x, y): x elevado à potência y.
+Funções de arredondamento:
+
+ceil(x): Teto de x (arredonda para o próximo número inteiro maior ou igual a x).
+floor(x): Chão de x (arredonda para o próximo número inteiro menor ou igual a x).
+round(x): Arredonda x para o inteiro mais próximo.
+Constantes matemáticas:
+
+M_PI: Valor de π (pi, aproximadamente 3.141592653589793).
+M_E: Valor de e (número de Euler, aproximadamente 2.718281828459045).
+
+
+19.  #include <stdio.h>
+
+int main() {
+    int inicio, fim;
+    int soma = 0;
+    int quantidade = 0;
+
+    printf("valor de início do limite: ");
+    scanf("%d", &inicio);
+
+    printf("valor de fim do limite: ");
+    scanf("%d", &fim);
+
+    // verifica se o lim é válido (fim deve ser maior ou igual a inicio)
+    if (fim < inicio) {
+        printf("o fim tem que ser maior ou igual ao seu início.\n");
+        return 1; // vai finalizar o programa c erro
+    }
+
+    for (int i = inicio; i <= fim; i++) {
+        soma += i;
+        quantidade++;
+    }
+
+    double media = (double)soma / quantidade;
+
+    printf("essa é a média aritmética dos números envolvidos no limite [%d, %d]: %.2lf\n", inicio, fim, media);
+
+    return 0;
+}
+
+
+20.  #include <stdio.h>
+
+// calculo do fatorial
+int calculofatorial(int numero) {
+    int fatorial = 1;
+    for (int i = 1; i <= numero; i++) {
+        fatorial *= i;
+    }
+    return fatorial;
+}
+
+int main() {
+    printf("fatoriais dos ímpares de 1 a 10:\n");
+
+    for (int i = 1; i <= 10; i++) {
+        if (i % 2 != 0) { // p/ ver se o número é ímpar
+            int fatorial = calculofatorial(i);
+            printf("%d! = %d\n", i, fatorial);
+        }
+    }
+
+    return 0;
+}
+
+
+21.  #include <stdio.h>
+
+int main() {
+    int numero, original, reverso = 0, digito;
+
+    printf("número inteiro de cinco dígitos: ");
+    scanf("%d", &numero);
+
+    original = numero; // número original
+
+    // número tem exatamente cinco dígitos?
+    if (numero < 10000 || numero > 99999) {
+        printf("não tem cinco dígitos.\n");
+    } else {
+        while (numero > 0) {
+            digito = numero % 10;
+            reverso = reverso * 10 + digito;
+            numero = numero / 10;
+        }
+
+        if (original == reverso) {
+            printf("%d é um palíndromo.\n", original);
+        } else {
+            printf("%d não é um palíndromo.\n", original);
+        }
+    }
+
+    return 0;
+}
+
+22.    #include <stdio.h>
+
+int main() {
+    int numero, digito, contador = 0;
+
+    printf("número: ");
+    scanf("%d", &numero);
+
+    // visualiza cada dígito no número
+    while (numero != 0) {
+        digito = numero % 10; // dígito da unidade
+        if (digito == 7) {
+            contador++; // add o contador dígito for 7
+        }
+        numero = numero / 10; // sem mais o dígito da unidade
+    }
+
+    printf("existem %d 7 no número fornecido\n", contador);
+
+    return 0;
+}
+
+
+23.   #include <stdio.h>
+
+int main() {
+    int numero = 10;
+    int resultadopre, resultadopos;
+
+    
+    resultadopre = ++numero;
+
+    numero = 10; 
+
+    
+    resultadopos = numero++;
+
+    printf("num original: 10\n");
+    printf("pré-incremento (++numero): Resultado = %d, número = %d\n", resultadopre, numero);
+    printf("pós-incremento (numero++): Resultado = %d, número = %d\n", resultadopos, numero);
+
+    return 0;
+}
+
+
+24.   #include <stdio.h>
+
+int main() {
+    int cateto1, cateto2, hipotenusa;
+
+    printf("triplas de pitágoras que não passam de 500:\n");
+
+    for (hipotenusa = 1; hipotenusa <= 500; hipotenusa++) {
+    for (cateto1 = 1; cateto1 < hipotenusa; cateto1++) {
+    for (cateto2 = cateto1; cateto2 < hipotenusa; cateto2++) {
+    if (cateto1 * cateto1 + cateto2 * cateto2 == hipotenusa * hipotenusa) {
+    printf("(%d, %d, %d)\n", cateto1, cateto2, hipotenusa);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+25.  #include <stdio.h>
+
+int main() {
+    int numdeter;
+    double piaprox= 0.0;
+    int sinal = 1;
+
+    printf("quantidade de termos\tvalor aproximado de pi\n");
+
+    for (numdeter = 1; numdeter <= 1000; numdeter++) {
+        piaprox += (double)sinal * 4 / (2 * numdeter - 1);
+        if (numdeter % 10 == 0) {
+            printf("%d\t\t\t%.10lf\n", numdeter, piaprox);
+        }
+        sinal = -sinal; // vai mudando o sinal de cd termo
+    }
+
+    return 0;
+}
+
+
+26.  #include <stdio.h>
+
+int main() {
+    int dec;
+
+    printf("dec\tbin\toct\thexa\n");
+
+    for (dec = 1; dec <= 256; dec++) {
+        printf("%d\t", dec);
+
+        // p/ binário
+        int temp = dec;
+        for (int i = 7; i >= 0; i--) {
+            int bit = (temp >> i) & 1;
+            printf("%d", bit);
+        }
+
+        printf("\t");
+
+        //p/ octal
+        printf("%o\t", dec);
+
+        // p/ hexadecimal
+        printf("%X\n", dec);
+    }
+
+    return 0;
+}
+
+
+27.  #include <stdio.h>
+#include <limits.h> // usar INT_MIN e INT_MAX
+
+int main() {
+    int numero, maior = INT_MIN, menor = INT_MAX;
+    int primeironumero = 1; // flag para indicar o primeiro número
+
+    printf(" números inteiros (p/ encerrar, digite um número negativo e par):\n");
+
+    while (1) {
+        printf("número: ");
+        scanf("%d", &numero);
+
+        if (numero < 0 && numero % 2 == 0) {
+            break; // sair do loop como especificado na questão
+        }
+
+        // aat maior e menor num
+        if (primeironumero) {
+            maior = numero;
+            menor = numero;
+            primeironumero = 0;
+        } else {
+            if (numero > maior) {
+                maior = numero;
+            }
+            if (numero < menor) {
+                menor = numero;
+            }
+        }
+    }
+
+    if (primeironumero) {
+        printf("não escreveu número".\n");
+    } else {
+        long long produto = (long long)maior * menor; // long long para evitar estouro
+        printf("produto do maior pelo menor : %lld\n", produto);
+    }
+
+    return 0;
+
+
+limits.h:   INT_MAX: Representa o valor máximo que pode ser armazenado em uma variável do tipo int. Normalmente é igual a 2^31 - 1 em sistemas de 32 bits.
+
+INT_MIN: Representa o valor mínimo que pode ser armazenado em uma variável do tipo int. Normalmente é igual a -(2^31) em sistemas de 32 bits.
+
+LONG_MAX: Representa o valor máximo que pode ser armazenado em uma variável do tipo long. Normalmente é igual a 2^63 - 1 em sistemas de 64 bits.
+
+LONG_MIN: Representa o valor mínimo que pode ser armazenado em uma variável do tipo long. Normalmente é igual a -(2^63) em sistemas de 64 bits.
+
+
+28.  #include <stdio.h>
+
+int main() {
+    unsigned char X, Y;
+    printf("valor de x (0-255): ");
+    scanf("%hhu", &X);
+    
+    printf("valor de Y (>= 5 e <= 250): ");
+    scanf("%hhu", &Y);
+    
+    if (Y < 5 || Y > 250) {
+        printf("Y deve ser >= 5 e <= 250.\n");
+        return 1;
+    }
+    
+    // mask p/ os bits a serem mantidos e p/ os bits de Y
+    unsigned char mascaraX = 0xF0; // 11110000 em binário
+    unsigned char mascaraY = 0x0F; // 00001111 em binário
+    
+    // escnd os bits de X nos 4 elementos anteriores a Y
+    for (int i = Y - 1; i >= Y - 4; i--) {
+        X = (X & mascaraX) | (i & mascaraY);
+    }
+    
+    // escnd os bits de X nos 4 elementos posteriores a Y
+    for (int i = Y + 1; i <= Y + 4; i++) {
+        X = (X & mascaraX) | (i & mascaraY);
+    }
+    
+    printf("resultado: %u\n", X);
+    
+    return 0;
+}
